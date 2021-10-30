@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.mappers">
+
+<update id="updateuserInfo" parameterType="java.util.Map">
+update userinfo set user_name=#{user_name} where user_id=#{user_id}
+</update>
+
+
+<update id="updateroleInfo" parameterType="java.util.Map">
+update roleinfo set role_name=#{role_name} where role_id=#{role_id}
+</update>
+<update id="updateuser_role" parameterType="java.util.Map">
+update user_role set role_id=#{role_id} where user_id=#{user_id}
+</update>	
+
+<!-- 
+<select id="selectdata" parameterType="java.util.Map" resultMap="userInfo,total">
+
+select SQL_CALC_FOUND_ROWS * from filedata
+<where>
+<if test="fname!=null and fname!='' ">
+and fname like concat('%',#{fname},'%')
+</if>
+</where>
+order by fid 
+<if test="currentPage!=null and startLine!=null">limit #{startLine},#{currentPage}</if>;
+
+
+SELECT FOUND_ROWS () as total;
+</select>
+<insert id="insertdata" useGeneratedKeys="true" keyProperty="fid" parameterType="java.util.Map">
+insert into filedata(fname,fdata) values(#{fname},#{fdata,typeHandler=org.apache.ibatis.type.BlobTypeHandler});
+
+</insert>
+<select id="selectone" parameterType="upload.filedata" resultType="upload.filedata">select  * from filedata where fid = #{fid}</select>
+ -->
+</mapper>

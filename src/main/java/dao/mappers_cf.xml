@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.mappers">
+	<!-- 创建用户表 -->
+	<update id="createTable_userInfo">
+		CREATE TABLE IF NOT EXISTS `userInfo`(
+		`id` smallINT AUTO_INCREMENT,
+		`user_id` char(10),
+		`user_name` VARCHAR(20) NOT NULL,
+		`dapartment_name` VARCHAR(24) NOT NULL,
+		`password` VARCHAR(20) NOT NULL,
+		PRIMARY KEY ( `id` )
+		)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	</update>
+	<!-- 创建角色表 -->
+	<update id="createTable_roleInfo">
+		CREATE TABLE IF NOT EXISTS `roleInfo`(
+		`role_id` smallINT AUTO_INCREMENT,
+		`role_name` VARCHAR(24) NOT NULL,
+		`creator` VARCHAR(24) NOT NULL,
+		`creation_time` dateTime NOT NULL,
+		PRIMARY KEY ( `role_id` )
+		)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	</update>
+	<!-- 创建用户角色表 -->
+	<update id="createTable_user_role">
+		CREATE TABLE IF NOT EXISTS `user_role`(
+		`ur_id` smallINT AUTO_INCREMENT,
+		`user_id` smallint,
+		`role_id` smallINT,
+		PRIMARY KEY ( `ur_id` ),
+		foreign key (`user_id`) references userInfo('id')
+		)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	</update>
+	<!-- 创建权限表 -->
+	<update id="createTable_promissionInfo">
+		CREATE TABLE IF NOT EXISTS `promissionInfo`(
+		`pm_id` smallINT AUTO_INCREMENT,
+		`menu_id` smallINT NOT NULL,
+		`element_id` smallINT NOT NULL,
+		PRIMARY KEY ( `pm_id` )
+		)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	</update>
+	<!-- 创建角色权限表 -->
+	<update id="createTable_role_promission">
+		CREATE TABLE IF NOT EXISTS `role_promission`(
+		`rp_id` smallINT AUTO_INCREMENT,
+		`pm_id` smallINT NOT NULL,
+		`role_id` smallINT NOT NULL,
+		PRIMARY KEY ( `rp_id` )
+		)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	</update>
+	<!-- 创建功能菜单表 -->
+	<update id="createTable_menuInfo">
+		CREATE TABLE IF NOT EXISTS `menuInfo`(
+		`menu_id` smallINT AUTO_INCREMENT,
+		`menu_name` VARCHAR(24) NOT NULL,
+		`parent` VARCHAR(24) NOT NULL,
+		PRIMARY KEY ( `menu_id` )
+		)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	</update>
+	<!-- 创建元素表 -->
+	<update id="createTable_elementInfo">
+		CREATE TABLE IF NOT EXISTS `elementInfo`(
+		`element_id` smallINT AUTO_INCREMENT,
+		`element_name` VARCHAR(24) NOT NULL,
+		`menu_id` smallINT NOT NULL,
+		PRIMARY KEY ( `element_id` )
+		)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	</update>
+
+</mapper>

@@ -1,0 +1,126 @@
+img {
+	border: 0;
+}
+
+label {
+	margin: 0 5px 0 0;
+	width: 200px;
+
+}
+
+.requiredtitle {
+	float: left;
+	width: 100px;
+	margin: 6px, 10px;
+}
+
+.tips {
+	float: left;
+	width: 240px;
+	margin-left: 90px;
+}
+
+.register_input {
+	float: left;
+	width: 200px;
+	/* background-image: url(../img/input.jpg); */
+	/* background-repeat: no-repeat; */
+	/* background-color: #f9f9f9; */
+	border: 0 none;
+	color: #4F4F4F;
+	font-size: 12px;
+	height: 18px;
+	outline: medium none;
+	width: 150px;
+
+}
+
+#binput {
+	float: left;
+	background-image: url(../img/input.jpg);
+	background-repeat: no-repeat;
+	padding: 1px;
+	margin: 5px;
+}
+
+/* input,label{display: inline-block;} */
+
+.index_box {
+
+	width: 100%;
+	margin: 50px;
+}
+
+.box_main {
+	width: 900px;
+	margin: 0 auto;
+	border-bottom: 1px solid #bfbfbf;
+}
+
+#hint {
+	position: fixed;
+	color: red;
+	margin: 70px 0 0 450px;
+	font-size: 16px;
+	Z-index: 100;
+	display: block;
+}
+
+
+/* input[tyoe="submit"]背景图片设置 */
+input.button_button {
+	width: 106px;
+	height: 35px;
+	background-image: url(../img/buttom.png);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	border: none;
+	font-size: 15px;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-align: center;
+	text-indent: 20px;
+	line-height: 33px;
+	text-shadow: 0 -1px 0 #535353;
+	margin: 0 auto;
+
+}
+.fieldset{
+	padding: 0,100px;
+}
+
+.field-group {
+	clear: both;
+	border: 0px;
+	height: 50px;
+
+}
+
+hr {
+	color: #FF7700;
+	width: 200px;
+	height: 2px;
+}
+
+
+/*index start*/
+/* 
+.box_main{border:solid #D0D0D0;background:#ffffff;border-width:0 1px 0 1px;width:988px;;min-height:50px;overflow:hidden !important;}
+.box_bottom{background:url('static/img/box_bottom.png') no-repeat scroll center top transparent;width:991px;height:7px;padding:0;} */
+/*Tooltips*/
+
+/*regist*/
+
+/* .register .form_submit .fieldset .field-group{height:55px;}
+.register .form_submit .fieldset .field-group .title{width:120px;text-align:right;margin:4px 0 0 0;font-size:14px;}
+.register .form_submit .fieldset .field-group .control-group{width:350px;margin:0 10px;}
+.register .form_submit .fieldset .field-group .tips{width:250px;color:#bfbfbf;} */
+
+/*end regist www.sucaijiayuan.com*/
+/* .fieldset .input_add_background{background:url("static/img/input.jpg") no-repeat scroll 100% 100% transparent;background-position: center;height:30px;width:157px;margin:0 2px 0 0;}
+.fieldset .input_add_background input.register_input_ot{background-color:#f9f9f9;border:0 none;color:#4F4F4F;font-size:12px;height:18px;outline:medium none;width: 145px;padding:1px;margin:5px;}
+.fieldset .input_add_long_background{background:url("static/img/input_long.jpg") no-repeat scroll 100% 100% transparent;background-position: center;height:30px;width:286px;margin:0 0 15px 0;display:inline;}
+.fieldset .input_add_long_light_background{background:url("static/img/input_long_light.jpg") no-repeat scroll 100% 100% transparent;background-position: center;height:30px;width:286px;}
+.fieldset .input_add_long_background input.register_input{background-color:#f9f9f9;border:0 none;color:#4F4F4F;font-size:12px;height:18px;outline:medium none;width: 270px;padding:1px;margin:5px;}
+.fieldset .input_text{display:inline-block;position:absolute;vertical-align:top;margin:6px 0 0 10px;z-index:2;font-style:italic;color:#BFBFBF;}
+ */

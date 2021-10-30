@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+/* CSS Document */
+/*Reset*/
+* {
+	box-sizing: content-box;
+}
+
+body {
+	font-size: 12px;
+	font-family: '微软雅黑', "宋体", "Arial Narrow", Helvetica, sans-serif;
+	color: #000;
+	line-height: 1.2;
+	text-align: left;
+}
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+a:hover,a:focus {
+	text-decoration: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+	-webkit-text-size-adjust: none;
+}
+
+address,caption,cite,code,dfn,em,th,var {
+	font-style: normal;
+	font-weight: normal;
+}
+
+ol,ul {
+	list-style: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size: 100%;
+	font-weight: normal;
+}

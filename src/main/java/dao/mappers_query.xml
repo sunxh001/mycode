@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.mappers">
+<!-- 映射selectuserinfo -->
+<resultMap type="java.lang.Integer" id="total" autoMapping="true"></resultMap>
+<resultMap type="java.util.Map" id="usermap" autoMapping="true"></resultMap>
+<!-- 用户信息查询，包含搜索和分页，使用MAP -->
+<select id="selectuserinfo" parameterType="java.util.Map" resultMap="usermap,total">
+select  sql_calc_found_rows * from userinfo
+<where>
+<if test="id!=null and id!=''">
+and id=#{id}
+</if>
+<if test="user_id!=null and user_id!=''">
+and user_id=#{user_id}
+</if>
+<if test="user_name!=null and user_name!='' ">
+and user_name like concat('%',#{username},'%')
+</if>
+<if test="dapartment_name!=null and dapartment_name!='' ">
+and dapartment_name like concat('%',#{dapartment_name},'%')
+</if>
+<if test="password!=null and password!='' ">
+and password =#{password}
+</if>
+</where>
+<if test="currentPage!=null and startLine!=null">limit #{startLine},#{currentPage}</if>;
+SELECT FOUND_ROWS () as total;
+</select>
+<!-- 用户权限查询，联合两表查询，可以返回bean-->
+<select id="selectuser_promission" parameterType="java.util.Map" resultType="java.util.Map">
+select  r.pm_id from  user_role u left join role_promission r  on u.role_id=r.role_id  where u.user_id=#{current_id}
+</select>
+<!-- 用户角色查询-->
+<select id="selectuserrole" parameterType="java.util.Map" resultMap="usermap,total">
+select * from  user_role 
+<where>
+<if test="id!=null and id!=''">
+and id=#{id}
+</if>
+<if test="user_id!=null and user_id!=''">
+and user_id=#{user_id}
+</if>
+<if test="user_name!=null and user_name!='' ">
+and role_id=#{user_id}
+</if>
+</where>
+<if test="currentPage!=null and startLine!=null">limit #{startLine},#{currentPage}</if>;
+SELECT FOUND_ROWS () as total;
+</select>
+<!-- 角色查询-->
+<select id="selectroleinfo" parameterType="java.util.Map" resultMap="usermap,total">
+select * from  roleinfo 
+<where>
+<if test="role_id!=null and role_id!=''">
+and role_id=#{role_id}
+</if>
+<if test="role_name!=null and role_name!=''">
+and role_name like concat("%",#{role_name},"%")
+</if>
+<if test="creator!=null and creator!='' ">
+and creator=#{creator}
+</if>
+<if test="creator_name!=null and creator_name!='' ">
+and creator_name=#{creator_name}
+</if>
+</where>
+<if test="currentPage!=null and startLine!=null">limit #{startLine},#{currentPage}</if>;
+SELECT FOUND_ROWS () as total;
+</select>
+
+<!-- 菜单查询-->
+<select id="selectmenuinfo" parameterType="java.util.Map" resultMap="usermap,total">
+select * from  menuinfo 
+<where>
+<if test="menu_id!=null and menu_id!=''">
+and menu_id=#{menu_id}
+</if>
+<if test="menu_name!=null and menu_name!='' ">
+and menu_name=#{menu_name}
+</if>
+<if test="parent!=null and parent!='' ">
+and parent=#{parent}
+</if>
+</where>
+<!-- <if test="currentPage!=null and startLine!=null">limit #{startLine},#{currentPage}</if> -->;
+SELECT FOUND_ROWS () as total;
+</select>
+<!-- 权限查询-->
+<select id="selectpromissioninfo" parameterType="java.util.Map" resultMap="usermap,total">
+select * from  promissioninfo 
+<where>
+<if test="promission_id!=null and promission_id!=''">
+and promission_id=#{promission_id}
+</if>
+<if test="menu_id!=null and menu_id!='' ">
+and menu_name=#{menu_name}
+</if>
+<if test="element_id!=null and element_id!='' ">
+and element_id=#{element_id}
+</if>
+</where>
+<if test="currentPage!=null and startLine!=null">limit #{startLine},#{currentPage}</if>;
+SELECT FOUND_ROWS () as total;
+</select>
+
+<!-- 角色的权限查询-->
+<select id="selectrole_promission" parameterType="java.util.Map" resultMap="usermap,total">
+select * from  role_promission
+<where>
+<if test="pm_id!=null and pm_id!=''">
+and pm_id=#{pm_id}
+</if>
+<if test="role_id!=null and role_id!='' ">
+and role_id=#{role_id}
+</if>
+</where>
+<if test="currentPage!=null and startLine!=null">limit #{startLine},#{currentPage}</if>;
+SELECT FOUND_ROWS () as total;
+</select>
+</mapper>

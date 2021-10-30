@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.mappers">
+ <!-- 新建单个用户 -->
+ <insert id="insertuserInfo" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.Map">
+insert into userInfo(user_id,user_name,dapartment_name,password) values(#{user_id},#{user_name},#{dapartment_name},#{password});
+</insert>
+ <!-- 批量新建用户 -->
+<insert id="insertuserInfo_pl" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.List">
+insert into userInfo(user_id,user_name,dapartment_name,password) values
+<foreach collection="list" item="userInfo" separator="," >
+(
+#{userInfo.user_id},#{userInfo.user_name},#{userInfo.dapartment_name},#{userInfo.password}
+)
+</foreach>
+</insert>
+ <!-- 新建角色 -->
+ <insert id="insertroleInfo" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.Map">
+insert into roleInfo(role_name,creator,creation_time) values(#{role_name},#{creator},#{creation_time});
+</insert> 
+ <!-- 新建角色用户关联 -->
+  <insert id="insertuser_role" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.Map">
+insert into user_role(user_id,role_id) values(#{user_id},#{role_id});
+</insert> 
+ <!-- 新建角色权限关联 -->
+ <insert id="insertpromissionInfo" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.Map">
+insert into promissionInfo(item_id,type) values(#{item_id},#{type});
+</insert> 
+ <!-- 新建权限 -->
+ <insert id="insertrole_promission" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.Map">
+insert into role_promission(pm_id,role_id) values(#{pm_id},#{role_id});
+</insert>
+ <insert id="insertmenuInfo" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.Map">
+insert into menuInfo(menu_name,parent) values(#{menu_name},#{parent});
+</insert>
+ <insert id="insertelementInfo" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.Map">
+insert into menuInfo(element_name,menu_id) values(#{element_name},#{menu_id});
+</insert>
+</mapper>
